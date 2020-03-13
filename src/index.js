@@ -45,17 +45,15 @@ document.addEventListener("DOMContentLoaded", function() {
     
     const select = document.getElementById('breed-dropdown')
     select.addEventListener("change", event => {
-            let letter = (event.target.value)
+        let letter = (event.target.value)
         document.querySelectorAll('li').forEach (element => {
-            if (element.innerText[0] != letter) {
-                element.style = "visibility: hidden";
-        } else {
-            element.style = "visibility: visible";
-        }
+            if (letter == "") {
+                element.style.display = "";
+            } else if (letter !== "" && element.innerText[0] !== letter) {
+                element.style.display = "none";
+            } else {
+                element.style.display = "";
+            }
+        })
     })
-    })
-
-
-
-
 })
